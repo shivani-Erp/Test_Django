@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Upload Data{% endblock %}
+
+{% block content %}
+{% if messages %}
+<div class="alert alert-success" role="alert">
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+    <h2>Upload Data</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+{% endblock %}
